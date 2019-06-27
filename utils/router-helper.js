@@ -1,3 +1,5 @@
+const Joi = require('joi');
+
 // utils/router-helper.js
 const paginationDefine = {
     limit: Joi.number().integer().min(1).default(10)
@@ -7,4 +9,9 @@ const paginationDefine = {
     pagination: Joi.boolean().description('是否开启分页，默认为true'),
 }
 
-module.exports = { paginationDefine }
+const jwtHeaderDefine = {
+    headers: Joi.object({
+        authorization: Joi.string().required(),
+    }).unknown(),
+}
+module.exports = { paginationDefine, jwtHeaderDefine }

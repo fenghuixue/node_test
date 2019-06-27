@@ -7,6 +7,7 @@ const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const configs = require('../config/config.js');
 
+// 根据env开发环境 确定 config
 const config = {
   ...configs[env],
   define: {
